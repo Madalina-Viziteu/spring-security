@@ -21,15 +21,19 @@ public class TransactionService {
     @Autowired
     TransactionRepository transactionRepository;
 
-    public void addTransaction(TransactionDto transactionDto) {
-        Transaction transaction = new Transaction();
-        transaction.setAmount(Double.valueOf(transactionDto.getAmount()));
-        transaction.setDateTime(LocalDateTime.now());
-        Optional<Account> optionalSourceAccount = accountRepository.findByAccountNumber(transactionDto.getSourceAccount());
-        transaction.setSourceAccount(optionalSourceAccount.get());
-        Optional<Account> optionalTargetAccount = accountRepository.findByAccountNumber(transactionDto.getTargetAccount());
-        transaction.setTargetAccount(optionalTargetAccount.get());
-        // TODO: 3/28/2022 method withdraw money from source account and put it into target account
-        transactionRepository.save(transaction);
+//    public void addTransaction(TransactionDto transactionDto) {
+//        Transaction transaction = new Transaction();
+//        transaction.setAmount(Double.valueOf(transactionDto.getAmount()));
+//        transaction.setDateTime(LocalDateTime.now());
+//        Optional<Account> optionalSourceAccount = accountRepository.findByAccountNumber(transactionDto.getSourceAccount());
+//        transaction.setSourceAccount(optionalSourceAccount.get());
+//        Optional<Account> optionalTargetAccount = accountRepository.findByAccountNumber(transactionDto.getTargetAccount());
+//        transaction.setTargetAccount(optionalTargetAccount.get());
+//        // TODO: 3/28/2022 method withdraw money from source account and put it into target account
+//        transactionRepository.save(transaction);
+//    }
+
+    public void addTransaction(Transaction transaction) {
+       transactionRepository.save(transaction);
     }
 }
