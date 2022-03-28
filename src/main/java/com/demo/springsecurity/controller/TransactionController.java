@@ -14,7 +14,7 @@ public class TransactionController {
     TransactionService transactionService;
 
     @PostMapping("/transaction/add")
-    public void createRentalAgency(@RequestBody Transaction transaction){
+    public void createTransaction(@RequestBody Transaction transaction){
         transactionService.addTransaction(transaction);
     }
 }
