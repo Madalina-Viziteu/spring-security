@@ -15,10 +15,9 @@ public class UserController {
     UserService userService;
 
     @GetMapping(value = "/home")
-    public String getExamplePage() {
+    public String getHomePage() {
         return "Home page";
     }
-
 
     @GetMapping(value = "/user")
     public String getUserPage() {
