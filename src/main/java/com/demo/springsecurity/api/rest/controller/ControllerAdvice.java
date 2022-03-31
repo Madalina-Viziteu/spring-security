@@ -1,4 +1,4 @@
-package com.demo.springsecurity.controller;
+package com.demo.springsecurity.api.rest.controller;
 
 import com.demo.springsecurity.model.AccountNotFoundException;
 import org.springframework.http.HttpStatus;
