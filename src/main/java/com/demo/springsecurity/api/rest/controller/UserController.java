@@ -2,6 +2,7 @@ package com.demo.springsecurity.api.rest.controller;
 
 import com.demo.springsecurity.dto.UserDto;
 import com.demo.springsecurity.model.User;
+import com.demo.springsecurity.model.UserNotFoundException;
 import com.demo.springsecurity.repository.UserRepository;
 import com.demo.springsecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
