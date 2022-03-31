@@ -1,10 +1,17 @@
 package com.demo.springsecurity.controller;
 
+import com.demo.springsecurity.dto.UserDto;
+import com.demo.springsecurity.model.User;
 import com.demo.springsecurity.repository.UserRepository;
 import com.demo.springsecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -29,14 +36,24 @@ public class UserController {
         return "admin page";
     }
 
-//    @GetMapping(value = "/all-users")
-//    public List<User> getAllUsers() {
-//        return userRepository.getAllUsers();
-//    }
+    @GetMapping(value = "/users")
+    public List<User> getAllUsers() {
+        return userRepository.getAllUsers();
+    }
 
-//    @PostMapping("/user/create")
-//    public void createUser(User user){
-//        userService.createUser(user);
-//    }
+    @PostMapping("/user/create")
+    public void createUser(@RequestBody User user) {
+        userService.createUser(user);
+    }
 
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable("id") Integer id) {
+        userService.deleteUser(id);
+    }
+
+    //find user account
+    @GetMapping("users/{id}/{accountId}")
+    public String findUserAccount(@PathVariable Integer id, @PathVariable Integer accountId){
+        return "my account";
+    }
 }

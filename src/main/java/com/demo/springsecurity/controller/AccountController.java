@@ -4,10 +4,7 @@ import com.demo.springsecurity.model.Account;
 import com.demo.springsecurity.model.Transaction;
 import com.demo.springsecurity.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 
@@ -22,8 +19,12 @@ public class AccountController {
     }
 
     @PostMapping("/account/add")
-    public void createAccount(@RequestBody Account account){
+    public void createAccount(@RequestBody Account account) {
         accountService.addAccount(account);
     }
 
+    @DeleteMapping("/accounts/{id}")
+    public void deleteAccount(@PathVariable("id") Integer id) {
+        accountService.deleteAccount(id);
+    }
 }

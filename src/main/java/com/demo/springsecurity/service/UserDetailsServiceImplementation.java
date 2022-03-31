@@ -22,7 +22,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepository.findByEmail(username);
+        Optional<User> optionalUser = userRepository.findByName(username);
         if (!optionalUser.isPresent()) {
             throw new UsernameNotFoundException("User " + username + " does not exist");
         }

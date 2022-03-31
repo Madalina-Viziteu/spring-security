@@ -34,7 +34,7 @@ public class TransactionFiler implements Filter {
     FilterRegistrationBean myFilter () {
         FilterRegistrationBean frb = new FilterRegistrationBean();
         frb.setFilter(new TransactionFiler());
-        frb.setUrlPatterns(Arrays.asList("/addTransaction, /getTransaction"));
+        frb.setUrlPatterns(Arrays.asList("/transaction/add, /getTransaction"));
         return frb;
     }
 

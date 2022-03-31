@@ -21,15 +21,15 @@ public class Configuration {
         return userDetailsManager;
     }
 
-//    @Bean
-//    UserDetailsService adminDetailsService() {
-//        var userDetailsManager = new InMemoryUserDetailsManager();
-//
-//        UserDetails user = User.withUsername("user")
-//                .password("abc")
-//                .authorities("view")
-//                .build();
-//
-//        return userDetailsManager;
-//    }
+    @Bean
+    UserDetailsService adminDetailsService() {
+        var userDetailsManager = new InMemoryUserDetailsManager();
+
+        UserDetails user = User.withUsername("user")
+                .password("abc")
+                .authorities("view")
+                .build();
+
+        return userDetailsManager;
+    }
 }

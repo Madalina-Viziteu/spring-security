@@ -15,14 +15,22 @@ public class UserService {
     UserMapper userMapper;
 
     public void createUser(User user) {
+        user.getId();
+        user.getName();
+        user.getEmail();
+        user.getPassword();
+        user.getAccounts();
         userRepository.save(user);
     }
 
 //    public void addUser(UserDto userDto) {
 //        User user = userMapper.map(userDto);
 //        userRepository.save(user);
-//     }
+//    }
 
+    public void deleteUser(Integer id) {
+        userRepository.deleteById(id);
+    }
 
 
 }
